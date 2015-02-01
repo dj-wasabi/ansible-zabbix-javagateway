@@ -14,8 +14,11 @@ Requirements
 ------------
 
 This role will work on:
+
 * Red Hat
+
 * Debian
+
 * Ubuntu
 
 So, you'll need one of those operating systems.. :-)
@@ -24,7 +27,10 @@ Role Variables
 --------------
 
 There are some variables in de default/main.yml which can (Or needs to) be changed/overriden:
+
 * `zabbix_version`: This is the version of zabbix. Default it is 2.4, but can be overriden to 2.2 or 2.0.
+
+* `zabbix_repo`: True / False. When you already have an repository with the zabbix components, you can set it to False.
 
 Dependencies
 ------------
@@ -36,6 +42,7 @@ When using the zabbix-server:
   roles:
      - { role: dj-wasabi.zabbix-server, server_javagateway: 192.168.1.2}
 ```
+
 or when using the zabbix-proxy:
 ```
   roles:

@@ -2,4 +2,5 @@
 # defaults file for dj-wasabi.zabbix-javagateway
 
 zabbix_version: 2.4
+zabbix_repo: True
 
