@@ -17,3 +17,7 @@
             mode=0755 
   notify: zabbix-java-gateway restarted
 
+- name: "Make sure Zabbix Java Gateway is running"
+  service: name=zabbix-java-gateway
+           state=started
+           enabled=yes
