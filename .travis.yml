@@ -11,8 +11,3 @@ install:
 script:
   - ansible-playbook test/integration/default.yml --syntax-check
   - ansible-playbook test/integration/default.yml --connection=local --sudo
-  - >
-    ansible-playbook test/integration/default.yml --connection=local --sudo
-    | grep -q 'changed=0.*failed=0'
-    && (echo 'Idempotence test: pass' && exit 0)
-    || (echo 'Idempotence test: fail' && exit 1)
