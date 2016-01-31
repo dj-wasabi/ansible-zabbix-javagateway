@@ -9,10 +9,10 @@ install:
   - echo -e 'localhost  ansible_connection=local' > test/inventory
   - echo -e '[defaults]\nroles_path = ../\nhostfile = ./test/inventory' > ansible.cfg
 script:
-  - ansible-playbook --syntax-check test/integration/default.yml
-  - ansible-playbook --sudo -v --diff test/integration/default.yml
+  - ansible-playbook test/integration/default.yml --syntax-check
+  - ansible-playbook test/integration/default.yml --connection=local --sudo
   - >
-    ansible-playbook --sudo test/integration/default.yml
+    ansible-playbook test/integration/default.yml --connection=local --sudo
     | grep -q 'changed=0.*failed=0'
     && (echo 'Idempotence test: pass' && exit 0)
     || (echo 'Idempotence test: fail' && exit 1)
