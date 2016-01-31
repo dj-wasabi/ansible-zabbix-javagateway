@@ -1,6 +1,8 @@
 dj-wasabi.zabbix-proxy
 =========
 
+[![Build Status](https://travis-ci.org/dj-wasabi/ansible-zabbix-javagateway.svg?branch=master)](https://travis-ci.org/dj-wasabi/ansible-zabbix-javagateway)
+
 This is an role for installing and maintaining the zabbix-javagateway. 
 
 This is one of the 'dj-wasabi' roles which configures your whole zabbix environment. See an list for the complete list:
