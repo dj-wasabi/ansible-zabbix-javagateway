@@ -18,9 +18,7 @@ Requirements
 This role will work on:
 
 * Red Hat
-
 * Debian
-
 * Ubuntu
 
 So, you'll need one of those operating systems.. :-)
