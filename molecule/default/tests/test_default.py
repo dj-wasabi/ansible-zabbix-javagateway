@@ -21,7 +21,3 @@ def test_zabbix_java_gateway_dot_conf(File):
     assert zabbix_proxy_conf.contains("LISTEN_PORT=10052")
     assert zabbix_proxy_conf.contains("PID_FILE=/tmp/zabbix_java.pid")
     assert zabbix_proxy_conf.contains("START_POLLERS=5")
-
-
-def test_socket(Socket):
-    assert Socket("tcp://0.0.0.0:10052").is_listening
