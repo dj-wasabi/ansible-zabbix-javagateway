@@ -1,27 +1,6 @@
 ---
 - name: Converge
   hosts: all
-  pre_tasks:
-    - name: "Installing which"
-      yum:
-        name: "{{ item }}"
-        state: installed
-      with_items:
-        - net-tools
-        - which
-        - libselinux-python
-      register: installation_dependencies
-      when: ansible_distribution == 'CentOS'
-
-    - name: "Installing which on NON-CentOS"
-      apt:
-        name: "{{ item }}"
-        state: installed
-      with_items:
-        - net-tools
-      register: installation_dependencies
-      when: ansible_distribution != 'CentOS'
-
   roles:
     - role: ansible-zabbix-javagateway
       javagateway_pidfile: /tmp/zabbix_java.pid

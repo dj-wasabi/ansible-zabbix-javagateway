@@ -3,7 +3,7 @@
   hosts: localhost
   connection: local
   gather_facts: False
-  no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
+  # no_log: "{{ not lookup('env', 'MOLECULE_DEBUG') | bool }}"
   vars:
     molecule_file: "{{ lookup('env', 'MOLECULE_FILE') }}"
     molecule_ephemeral_directory: "{{ lookup('env', 'MOLECULE_EPHEMERAL_DIRECTORY') }}"
@@ -39,7 +39,7 @@
         image: "molecule_local/{{ item.image }}"
         state: started
         recreate: False
-        log_driver: syslog
+        log_driver: none
         command: "{{ item.command | default('sleep infinity') }}"
         privileged: "{{ item.privileged | default(omit) }}"
         volumes: "{{ item.volumes | default(omit) }}"

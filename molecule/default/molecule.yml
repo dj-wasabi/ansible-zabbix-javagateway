@@ -13,7 +13,8 @@ platforms:
     image: milcom/centos7-systemd
     privileged: True
   - name: zabbix-javagateway-debian
-    image: maint/debian-systemd
+    image: minimum2scp/systemd-stretch
+    command: /sbin/init
     privileged: True
 provisioner:
   name: ansible
