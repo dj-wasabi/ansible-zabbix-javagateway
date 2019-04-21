@@ -9,25 +9,33 @@
   apt_repository:
     repo: "deb http://repo.zabbix.com/zabbix/{{ zabbix_version }}/debian/ {{ ansible_distribution_release }} main"
     state: present
-  when: ansible_distribution == "Debian" and zabbix_repo == "zabbix"
+  when:
+    - ansible_distribution == "Debian"
+    - zabbix_repo == "zabbix"
 
 - name: "Debian | Installing repository Debian"
   apt_repository:
     repo: "deb-src http://repo.zabbix.com/zabbix/{{ zabbix_version }}/debian/ {{ ansible_distribution_release }} main"
     state: present
-  when: ansible_distribution == "Debian" and zabbix_repo == "zabbix"
+  when:
+    - ansible_distribution == "Debian"
+    - zabbix_repo == "zabbix"
 
 - name: "Debian | Installing repository Ubuntu"
   apt_repository:
     repo: "deb http://repo.zabbix.com/zabbix/{{ zabbix_version }}/ubuntu/ {{ ansible_distribution_release }} main"
     state: present
-  when: ansible_distribution == "Ubuntu" and zabbix_repo == "zabbix"
+  when:
+    - ansible_distribution == "Ubuntu"
+    - zabbix_repo == "zabbix"
 
 - name: "Debian | Installing repository Ubuntu"
   apt_repository:
     repo: "deb-src http://repo.zabbix.com/zabbix/{{ zabbix_version }}/ubuntu/ {{ ansible_distribution_release }} main"
     state: present
-  when: ansible_distribution == "Ubuntu" and zabbix_repo == "zabbix"
+  when:
+    - ansible_distribution == "Ubuntu"
+    - zabbix_repo == "zabbix"
 
 - name: "Debian | Installing zabbix-java-gateway"
   apt:
@@ -36,3 +44,5 @@
     update_cache: yes
     force: yes
     cache_valid_time: 3600
+  register: zabbix_java_gateway_install
+  until: zabbix_java_gateway_install is succeeded
