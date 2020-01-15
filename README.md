@@ -40,13 +40,13 @@ The java gateway can be installed on either the zabbix-server or the zabbix-prox
 When using the zabbix-server:
 ```
   roles:
-     - { role: dj-wasabi.zabbix-server, server_javagateway: 192.168.1.2}
+     - { role: dj-wasabi.zabbix-server, zabbix_server_javagateway: 192.168.1.2}
 ```
 
 or when using the zabbix-proxy:
 ```
   roles:
-     - { role: dj-wasabi.zabbix-proxy, zabbix_server_host: 192.168.1.1, proxy_javagateway: 192.168.1.2}
+     - { role: dj-wasabi.zabbix-proxy, zabbix_server_host: 192.168.1.1, zabbix_proxy_javagateway: 192.168.1.2}
 ```
 
 The above is assumed you'll using the 'dj-wasabi' zabbix roles. Don't know how to do this with other zabbix-server (or zabbix-proxy) roles from other members.
@@ -59,7 +59,7 @@ Including an example of how to use your role (for instance, with variables passe
     - hosts: zabbix-server
       sudo: yes
       roles:
-         - { role: dj-wasabi.zabbix-server, server_javagateway: 192.168.1.2}
+         - { role: dj-wasabi.zabbix-server, zabbix_server_javagateway: 192.168.1.2}
          - { role: dj-wasabi.zabbix-javagateway }
 
 License
